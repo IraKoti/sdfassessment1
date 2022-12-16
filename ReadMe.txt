@@ -8,7 +8,8 @@ java -cp classes Main *.csv *.txt
 
 it will produce template*.txt
 
-java -cp classes Main tour_packages.csv tour_packages.txt 
+java -cp classes Main tour_packages.csv tour_packages.txt
+java -cp classes Main thankyou.csv thankyou.txt
 
 
 

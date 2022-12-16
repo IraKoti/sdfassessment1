@@ -1,0 +1,6 @@
+Dear Mr. <<last_name>>,
+
+Thank you for your interest in our new Round the World package! 
+For the 2022 Spring promotion, you can sign up for the low low price of $10000!
+
+Safe travels!

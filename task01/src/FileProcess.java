@@ -152,31 +152,38 @@ public class FileProcess {
 
     public String replaceLine(String line, Map<String,String> mapValue)
     {
-        //System.out.println("line1 : "+line);
+        System.out.println("line1 : "+line);
+        System.out.println("map : "+mapValue);
         String newLine=line, wordKey;
         String oldWord, newWord;
+        boolean exit = false;
         Pattern p = Pattern.compile(".*\\<<.*");
         Matcher m = p.matcher(line);
         boolean b = m.matches();
         //System.out.println("result found"+b);
         if(m.matches())
-        {
-            Integer begin = line.indexOf("<<");
-            Integer last = line.lastIndexOf(">>");
-            oldWord = line.substring(begin,last+2);
-            wordKey = line.substring(begin+2, last);
-            newWord = mapValue.get(wordKey);
-            newLine = line.replace(oldWord, newWord);
-            if(newLine.contains("\\n"))
-            {
-                System.out.println("line n found");
-                newLine = newLine.replaceAll(".*\\n.*", "\\r\n");
+        {  
+                Integer begin = line.indexOf("<<");
+                //Integer last = line.lastIndexOf(">>");
+                Integer last = line.indexOf(">>");
+                oldWord = line.substring(begin,last+2);
+                wordKey = line.substring(begin+2, last);
+                newWord = mapValue.get(wordKey);
+                // System.out.println("wordKey: "+ wordKey);
+                // System.out.println("old word: "+oldWord);
+                // System.out.println("new word: "+newWord);
+                newLine = line.replace(oldWord, newWord);
+                if(newLine.contains("\\n"))
+                {
+                    System.out.println("line n found");
+                    newLine = newLine.replaceAll(".*\\n.*", "\\r\n");
+                }
+                // System.out.println("wordKey: "+ wordKey);
+                // System.out.println("old word: "+oldWord);
+                // System.out.println("new word: "+newWord);
+                //System.out.println("new line: "+newLine);
+                line = newLine;
             }
-            // System.out.println("wordKey: "+ wordKey);
-            // System.out.println("old word: "+oldWord);
-            // System.out.println("new word: "+newWord);
-            //System.out.println("new line: "+newLine);
-        }
         
         return newLine;
     }
