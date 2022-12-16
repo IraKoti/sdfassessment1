@@ -157,12 +157,14 @@ public class FileProcess {
         String newLine=line, wordKey;
         String oldWord, newWord;
         boolean exit = false;
-        Pattern p = Pattern.compile(".*\\<<.*");
-        Matcher m = p.matcher(line);
-        boolean b = m.matches();
-        //System.out.println("result found"+b);
-        if(m.matches())
-        {  
+        while(!exit)
+        {
+            Pattern p = Pattern.compile(".*\\<<.*");
+            Matcher m = p.matcher(line);
+            boolean b = m.matches();
+            //System.out.println("result found"+b);
+            if(m.matches())
+            {  
                 Integer begin = line.indexOf("<<");
                 //Integer last = line.lastIndexOf(">>");
                 Integer last = line.indexOf(">>");
@@ -184,6 +186,12 @@ public class FileProcess {
                 //System.out.println("new line: "+newLine);
                 line = newLine;
             }
+            else
+            {
+                exit = true;
+            }
+        }
+        
         
         return newLine;
     }
