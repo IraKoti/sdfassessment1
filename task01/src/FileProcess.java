@@ -171,19 +171,8 @@ public class FileProcess {
                 oldWord = line.substring(begin,last+2);
                 wordKey = line.substring(begin+2, last);
                 newWord = mapValue.get(wordKey);
-                // System.out.println("wordKey: "+ wordKey);
-                // System.out.println("old word: "+oldWord);
-                // System.out.println("new word: "+newWord);
                 newLine = line.replace(oldWord, newWord);
-                if(newLine.contains("\\n"))
-                {
-                    //System.out.println("line n found");
-                    newLine = newLine.replaceAll(".*\\n.*", "\\r\n");
-                }
-                // System.out.println("wordKey: "+ wordKey);
-                // System.out.println("old word: "+oldWord);
-                // System.out.println("new word: "+newWord);
-                //System.out.println("new line: "+newLine);
+                newLine = newLine.replaceAll("\\\\n", "\r\n");
                 line = newLine;
             }
             else
