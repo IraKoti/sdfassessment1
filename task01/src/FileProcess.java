@@ -152,8 +152,8 @@ public class FileProcess {
 
     public String replaceLine(String line, Map<String,String> mapValue)
     {
-        System.out.println("line1 : "+line);
-        System.out.println("map : "+mapValue);
+        //System.out.println("line1 : "+line);
+        //System.out.println("map : "+mapValue);
         String newLine=line, wordKey;
         String oldWord, newWord;
         boolean exit = false;
