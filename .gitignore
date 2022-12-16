@@ -1,3 +1,7 @@
+#ignore task01 and task02 classes
+task01/classes
+task02/classes
+
 # Compiled class file
 *.class
 
