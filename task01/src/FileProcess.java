@@ -114,7 +114,7 @@ public class FileProcess {
         try {
             Reader file = new FileReader(getTxtFile());
             BufferedReader br = new BufferedReader(file);
-            System.out.println("text file "+getTxtFile());
+            //System.out.println("text file "+getTxtFile());
             File fnt = new File(newFileTxt);
             if(!fnt.exists())
             {
@@ -175,7 +175,7 @@ public class FileProcess {
                 newLine = line.replace(oldWord, newWord);
                 if(newLine.contains("\\n"))
                 {
-                    System.out.println("line n found");
+                    //System.out.println("line n found");
                     newLine = newLine.replaceAll(".*\\n.*", "\\r\n");
                 }
                 // System.out.println("wordKey: "+ wordKey);
